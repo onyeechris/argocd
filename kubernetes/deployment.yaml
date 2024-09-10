@@ -27,11 +27,11 @@ spec:
         ports:
         - containerPort: 3000
           protocol: TCP
-      volumeMounts:
-      - name: nginx-config-volume
-        mountPath: /etc/nginx/nginx.conf
-        subPath: nginx.conf
+        volumeMounts:
+        - name: nginx-config-volume
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
       volumes:
       - name: nginx-config-volume
         configMap:
-          name: nginx-config  
+          name: nginx-config
