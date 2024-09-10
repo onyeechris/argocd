@@ -5,12 +5,20 @@ metadata:
   namespace: aka-ns
 data:
   nginx.conf: |
-    server {
-        listen 3000;
-        server_name localhost;
+    worker_processes 1;
 
-        location / {
-            root /usr/share/nginx/html;
-            index index.html;
+    events {
+        worker_connections 1024;
+    }
+
+    http {
+        server {
+            listen 3000;
+            server_name localhost;
+
+            location / {
+                root /usr/share/nginx/html;
+                index index.html;
+            }
         }
     }
