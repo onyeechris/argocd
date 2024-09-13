@@ -1,14 +1,21 @@
-server {
-    listen 3000;
-    server_name localhost;
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-config
+  namespace: aka-ns
+data:
+  nginx.conf: |
+    server {
+        listen 3000;
+        server_name localhost;
 
-    location / {
-        root /usr/share/nginx/html;
-        index index.html;
-    }
+        location / {
+            root /usr/share/nginx/html;
+            index index.html;
+        }
 
-    # Serve static assets from the /assets/ directory
-    location /assets/ {
-        root /usr/share/nginx/html;
+        # Serve static assets from the /assets/ directory
+        location /assets/ {
+            root /usr/share/nginx/html;
+        }
     }
-}
