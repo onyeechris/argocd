@@ -5,12 +5,36 @@ metadata:
   namespace: aka-ns
 data:
   nginx.conf: |
-        server {
-            listen 3000;
-            server_name localhost;
+    server {
+        listen 3000;
+        server_name localhost;
 
-            location / {
-                root /usr/share/nginx/html;
-                index index.html;
-            }
+        location / {
+            root /usr/share/nginx/html;
+            index index.html;
         }
+
+        # Serve static assets like CSS, JS, images
+        location /assets/ {
+            root /usr/share/nginx/html;
+        }
+
+        # Serve favicon
+        location /favicon.ico {
+            root /usr/share/nginx/html;
+        }
+
+        # Serve other necessary static files
+        location /logo192.png {
+            root /usr/share/nginx/html;
+        }
+        location /logo512.png {
+            root /usr/share/nginx/html;
+        }
+        location /manifest.json {
+            root /usr/share/nginx/html;
+        }
+        location /robots.txt {
+            root /usr/share/nginx/html;
+        }
+    }
