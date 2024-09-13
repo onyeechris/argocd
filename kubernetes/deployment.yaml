@@ -29,7 +29,7 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: nginx-config-volume
-          mountPath: /etc/nginx/nginx.conf
+          mountPath: /etc/nginx/conf.d/*.conf
           subPath: nginx.conf
       volumes:
       - name: nginx-config-volume
