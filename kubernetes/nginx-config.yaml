@@ -5,7 +5,6 @@ metadata:
   namespace: aka-ns
 data:
   nginx.conf: |
-    http {
         server {
             listen 3000;
             server_name localhost;
@@ -15,4 +14,3 @@ data:
                 index index.html;
             }
         }
-    }
